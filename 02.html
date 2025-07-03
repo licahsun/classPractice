@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+// 請設計一個水費查詢程式
+// 1-10 度 => 每度單價為  7.35元
+// 11-30度 => 每度單價為  9.45元
+// 31-50度 => 每度單價為 11.55元
+// 50以上  => 每度單價為 12.075元
+
+// 測試情境1：
+// 用水度數：8
+// 每度為：7.35元
+// 實付水費為：58元
+
+// 測試情境2：
+// 用水度數：48
+// 每度為：11.55元
+// 實付水費為：554元
+
+        // var a = parseInt(prompt("請輸入用水度數"));
+        // var b = "";
+
+        // if ((a >= 1) && (a <= 10)) {
+        //     b = 7.35;
+        // } else if ((a >= 11) && (a <= 30)) {
+        //     b = 9.45;
+        // } else if ((a >= 31) && (a <= 50)) {
+        //     b = 11.55;
+        // } else if ((a > 50)) {
+        //     b = 12.075;
+        // } else {
+        //     console.log("輸入錯誤");
+        // }
+
+        // if (b > 0) {
+        //     var c = Math.round(a * b);
+        // }
+        // console.log("用水度數為" + a);
+        // console.log("每度水費為" + b + "元");
+        // console.log("實付水費為" + c + "元");
+
+        // coffee老師
+        var water = 8;
+        var price = 0;
+
+        if (water >= 1 && water <= 10) {
+            price = 7.35;
+        }else if (water >= 11 && water <= 30) {
+            price = 9.45;
+        }else if (water >= 31 && water <= 50) {
+            price = 11.55;
+        }else if (water >50) {
+            price = 12.075;
+        }else {
+            console.log("度數錯誤");
+        }
+        console.log(`用水度數:${water}，每度為:${price}，實付水費為:${Math.round(water*price)}`);
+// Math.ceil()無條件進位;Math.round()四捨五入
+    </script>
+</body>
+
+</html>
