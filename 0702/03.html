@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 請設計一個分數等級程式
+
+        // 80 - 100 => 甲
+        // 70 -   79 => 乙
+        // 60 -   69 => 丙
+        //  0  -   59 => 丁
+
+        // 測試情境：
+        // 分數：82 => 成績等級為甲等
+
+        // var sc = prompt("請輸入分數");
+        // var c = "";
+
+        // if ((sc <= 80) && (sc >= 100)) {
+        //     c = "甲";
+        // } else if ((sc <= 79) && (sc >= 70)) {
+        //     c = "乙";
+        // } else if ((sc <= 69) && (sc >= 60)) {
+        //     c = "丙";
+        // } else if ((sc <= 59) && (sc >= 0)) {
+        //     c = "丁";
+        // } else {
+        //     console.log("輸入錯誤");
+        // }
+
+        // if (c !== "") {
+        //     console.log(`分數:${sc}=>成績等級為${c}等`)
+        // }
+
+        // coffee老師01
+        var score = 82;
+        if (score > 100 || score < 0) {
+            console.log(`err!不是有效數值範圍`);
+        } else if (score >= 80 && score <= 100) {
+            console.log(`分數:${score}=>成績等級為甲等`);
+        } else if (score >= 70 && score <= 79) {
+            console.log(`分數:${score}=>成績等級為乙等`);
+        } else if (score >= 60 && score <= 69) {
+            console.log(`分數:${score}=>成績等級為丙等`);
+        } else {
+            console.log(`分數:${score}=>成績等級為丁等`);
+        }
+
+        // coffee老師02
+        // if else if再包一個if else if
+        var intScore = 101;
+        var strLevel = "";
+
+        if (intScore > 100 || intScore < 0) {
+            console.log(`err!不是有效數值範圍`);
+        } else {
+            if (intScore >= 80 && intScore <= 100) {
+            strLevel="甲";
+        } else if (intScore >= 70 && intScore <= 79) {
+            strLevel="乙";
+        } else if (intScore >= 60 && intScore <= 69) {
+            strLevel="丙";
+        } else {
+            strLevel="丁";
+        }
+            console.log(`分數:${intScore}=>成績等級為${strLevel}等`);
+        }
+        
+    </script>
+</body>
+
+</html>
