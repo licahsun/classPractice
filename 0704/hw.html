@@ -9,33 +9,78 @@
 
 <body>
     <h2>猜數字</h2>
-    <p id=""></p>
     <script>
         var rd = Math.random() * 100;
-        console.log(Math.floor(rd) + 1);
+        rd2 = Math.floor(rd) + 1;
+        console.log(rd2);
 
 
+        var min = 1;
+        var max = 100;
+        var count = 0;
         while (1) {
-            var num = prompt("請輸入一個數字");
-
-            if (num ==""){
-                alert(`${num}不能為空白，請重新輸入`);
-            continue;
+            var num = prompt("請猜一個數字(1-100)");
+            if (num.trim() == "") {
+                alert(`不能為空白，請重新輸入`);
+                continue;
             }
-            if (num == rd) {
+            if (isNaN(Number(num))) {
+                alert(`請輸入有效數字`);
+                continue;
+            }
+            if (num == rd2) {
                 alert(`${num} => 猜對了!`);
                 break;
             }
-            if (num < rd && num > 0) {
-                alert(`${num} => 太小了 (提示:${num}-100)`);
+            if (num > 100) {
+                alert(`請輸入範圍內數字`);
                 continue;
             }
-            if (num > rd && num < 101) {
-                alert(`${num} => 太大了 (提示:${num})`);
+            if (num < 0 || num > 100) {
+                alert(`請輸入範圍內數字`);
+                continue;
+            }
+            num = parseInt(num);
+            count++;
+            if (num == rd2) {
+                alert(`猜對了!`);
+                break;
+            }
+            if (num > rd2) {
+                max = num;
+                alert(`第${count}次:${num} => 太大了(提示:${min}-${max})`);
+                continue;
+            }
+            if (num < rd2) {
+                min = num;
+                alert(`第${count}次:${num} => 太小了(提示:${min}-${max})`);
                 continue;
             }
         }
-        document.write(``)
+        document.write(`第 ${count} 次：${rd2} => 猜對了`);
+
+
+        // while (1) {
+        //     var num = prompt("請輸入一個數字");
+
+        //     if (num == "") {
+        //         alert(`${num}不能為空白，請重新輸入`);
+        //         continue;
+        //     }
+        //     if (num == rd) {
+        //         alert(`${num} => 猜對了!`);
+        //         break;
+        //     }
+        //     if (num < rd && num > 0) {
+        //         alert(`${num} => 太小了 (提示:${num}-100)`);
+        //         continue;
+        //     }
+        //     if (num > rd && num < 101) {
+        //         alert(`${num} => 太大了 (提示:${num})`);
+        //         continue;
+        //     }
+        // }
+        // document.write(``)
     </script>
 </body>
 
