@@ -10,32 +10,34 @@
 <body>
     <h2>猜數字</h2>
     <script>
-        var rd = Math.random() * 100;
-        rd2 = Math.floor(rd) + 1;
+        // var rd = Math.random() * 100;
+        // rd2 = Math.floor(rd) + 1;
+        // 簡化成一行
+        var rd2 = Math.floor(Math.random() * 100) + 1;
         console.log(rd2);
 
 
         var min = 1;
         var max = 100;
         var count = 0;
+        var strMsg = "";
+        var str1 = "";
+
         while (1) {
-            var num = prompt("請猜一個數字(1-100)");
+            var num = prompt(`請猜一個數字(${min}-${max})`);
+            if (num == null) {
+                alert(`您放棄猜數字，即將取消`);
+                break;
+            }
             if (num.trim() == "") {
                 alert(`不能為空白，請重新輸入`);
                 continue;
             }
-            if (isNaN(Number(num))) {
+            if (isNaN(parseInt(num))) {
                 alert(`請輸入有效數字`);
                 continue;
             }
-            if (num == rd2) {
-                alert(`${num} => 猜對了!`);
-                break;
-            }
-            if (num > 100) {
-                alert(`請輸入範圍內數字`);
-                continue;
-            }
+
             if (num < 0 || num > 100) {
                 alert(`請輸入範圍內數字`);
                 continue;
@@ -43,21 +45,27 @@
             num = parseInt(num);
             count++;
             if (num == rd2) {
-                alert(`猜對了!`);
+                str1 = `第${count}次，${num}=>恭喜猜對了!`;
+                alert(str1);
+                strMsg += str1 + "<br>";
                 break;
             }
             if (num > rd2) {
                 max = num;
-                alert(`第${count}次:${num} => 太大了(提示:${min}-${max})`);
-                continue;
+                str1 = `第${count}次:${num} => 太大了(提示:${min}-${max})`;
+                alert(str1);
+                strMsg += str1 + "<br>";
+                // continue; =>可以不用
             }
             if (num < rd2) {
                 min = num;
-                alert(`第${count}次:${num} => 太小了(提示:${min}-${max})`);
-                continue;
+                str1 = `第${count}次:${num} => 太小了(提示:${min}-${max})`;
+                alert(str1);
+                strMsg += str1 + "<br>";
+                // continue;=>可以不用
             }
         }
-        document.write(`第 ${count} 次：${rd2} => 猜對了`);
+        document.write(strMsg);
     </script>
 </body>
 
